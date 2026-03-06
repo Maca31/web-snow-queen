@@ -5,6 +5,8 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionWrapper } from "./SectionWrapper";
+import { AuroraEffect } from "../shared/AuroraEffect";
+import { MountainSilhouette } from "../shared/MountainSilhouette";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -207,6 +209,12 @@ export function Section01Intro() {
           priority
         />
       </div>
+
+      {/* Aurora boreal SVG */}
+      <AuroraEffect />
+
+      {/* Montañas silhouette */}
+      <MountainSilhouette />
 
       {/* Copos de nieve en canvas */}
       <canvas
