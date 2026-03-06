@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
+import { StormEffect } from '../shared/StormEffect';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +45,7 @@ export function Section10Storm() {
         imageOpacity={0.45}
         parallaxSpeed={0.25}
       />
+      <StormEffect intensity="heavy" />
       <StoryCard
         chapter="Capítulo IX"
         title="La Tormenta"

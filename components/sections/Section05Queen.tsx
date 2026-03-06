@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
+import { StormEffect } from '../shared/StormEffect';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +46,7 @@ export function Section05Queen() {
         imageOpacity={0.55}
         parallaxSpeed={0.2}
       />
+      <StormEffect intensity="normal" />
       <StoryCard
         chapter="Capítulo IV"
         title="La Reina de las Nieves"

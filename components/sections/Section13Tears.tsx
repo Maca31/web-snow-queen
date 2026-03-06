@@ -50,6 +50,35 @@ export function Section13Tears() {
       id="section-13-tears"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Golden sparkle particles — Gerda's tears melting Kay's frozen heart */}
+      <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
+        {[
+          { top: '25%', left: '40%', size: 6, dur: 3.0, delay: 0 },
+          { top: '35%', left: '55%', size: 8, dur: 3.5, delay: 0.6 },
+          { top: '45%', left: '45%', size: 5, dur: 2.8, delay: 1.2 },
+          { top: '30%', left: '50%', size: 7, dur: 3.2, delay: 1.8 },
+          { top: '50%', left: '42%', size: 4, dur: 2.6, delay: 0.4 },
+          { top: '40%', left: '58%', size: 6, dur: 3.4, delay: 2.0 },
+          { top: '55%', left: '48%', size: 5, dur: 2.9, delay: 0.9 },
+          { top: '20%', left: '52%', size: 4, dur: 3.1, delay: 1.5 },
+          { top: '60%', left: '38%', size: 6, dur: 3.3, delay: 2.4 },
+          { top: '28%', left: '60%', size: 5, dur: 2.7, delay: 0.3 },
+        ].map((s, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              top: s.top,
+              left: s.left,
+              width: s.size,
+              height: s.size,
+              background: 'radial-gradient(circle, rgba(251,191,36,0.9) 0%, rgba(245,158,11,0.5) 50%, transparent 70%)',
+              boxShadow: '0 0 8px 2px rgba(251,191,36,0.4)',
+              animation: `sparkleFloat ${s.dur}s ease-in-out ${s.delay}s infinite`,
+            }}
+          />
+        ))}
+      </div>
       <StoryCard
         chapter="Capítulo XII"
         title="Las Lágrimas Mágicas"
