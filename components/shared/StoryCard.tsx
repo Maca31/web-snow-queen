@@ -57,7 +57,7 @@ export function StoryCard({
   return (
     <div
       ref={ref}
-      className={`relative z-20 max-w-sm rounded-3xl border px-7 py-6 ${
+      className={`relative z-20 max-w-[calc(100vw-2.5rem)] rounded-3xl border px-5 py-5 sm:max-w-sm sm:px-7 sm:py-6 ${
         isDark
           ? 'border-sky-300/10 bg-slate-950/70 shadow-[0_0_80px_rgba(0,0,0,0.5)]'
           : 'border-white/90 bg-white/80 shadow-[0_20px_80px_rgba(0,0,0,0.12)]'

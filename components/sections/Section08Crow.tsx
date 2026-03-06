@@ -37,6 +37,14 @@ export function Section08Crow() {
       id="section-08-crow"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Ambient gradient overlay for visual depth */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 30% 40%, rgba(125,211,252,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(96,165,250,0.06) 0%, transparent 50%)',
+        }}
+        aria-hidden="true"
+      />
       <StoryCard
         chapter="Capítulo VII"
         title="El Cuervo Sabio"

@@ -390,6 +390,29 @@ section {
 .animate-ice-spark    { animation: iceSpark  2.5s ease-in-out infinite; }
 
 /* ───────────────────────────────────────────────────────────────
+   7b. PERFORMANCE — will-change for animated elements
+   ─────────────────────────────────────────────────────────────── */
+
+/* Elements frequently animated by GSAP (parallax, characters, cards) */
+.animate-snow-spin,
+.animate-petal-fall,
+.animate-float,
+.animate-soft-pulse,
+.animate-ice-spark {
+  will-change: transform;
+}
+
+/* Parallax background media layer */
+[data-parallax-media] {
+  will-change: transform;
+}
+
+/* Character wrappers animated with GSAP transforms */
+.character-wrapper {
+  will-change: transform;
+}
+
+/* ───────────────────────────────────────────────────────────────
    8. RESPONSIVE
    ─────────────────────────────────────────────────────────────── */
 

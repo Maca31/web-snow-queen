@@ -37,6 +37,14 @@ export function Section09Robber() {
       id="section-09-robber"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Ambient gradient overlay for deep forest depth */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 60% 30%, rgba(163,230,53,0.07) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(45,74,20,0.15) 0%, transparent 50%)',
+        }}
+        aria-hidden="true"
+      />
       <StoryCard
         chapter="Capítulo VIII"
         title="La Niña Ladrona"

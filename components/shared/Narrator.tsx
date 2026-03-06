@@ -70,7 +70,7 @@ export function Narrator() {
       className="pointer-events-none fixed bottom-0 left-0 z-[400] flex w-full items-end gap-3 px-4 pb-4 md:px-8 md:pb-5"
     >
       <div
-        className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full md:h-14 md:w-14"
+        className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full sm:h-12 sm:w-12 md:h-14 md:w-14"
         style={{
           background: 'linear-gradient(135deg, #d4a843, #e8889a)',
           boxShadow: '0 0 20px rgba(212,168,67,0.45)',
@@ -78,12 +78,12 @@ export function Narrator() {
           animation: 'float 3s ease-in-out infinite',
         }}
       >
-        <span className="text-2xl md:text-3xl">🦋</span>
+        <span className="text-xl sm:text-2xl md:text-3xl">🦋</span>
       </div>
 
       <div
         ref={bubbleRef}
-        className="max-w-[min(340px,58vw)] rounded-2xl rounded-bl-sm bg-white/95 px-4 py-2.5 text-sm font-bold leading-relaxed text-slate-700 shadow-lg md:text-base"
+        className="max-w-[min(340px,58vw)] rounded-2xl rounded-bl-sm bg-white/95 px-3 py-2 text-xs font-bold leading-relaxed text-slate-700 shadow-lg sm:px-4 sm:py-2.5 sm:text-sm md:text-base"
         style={{ fontFamily: 'var(--font-kids)' }}
       >
         {text}

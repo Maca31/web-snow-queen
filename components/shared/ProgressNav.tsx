@@ -50,7 +50,7 @@ export function ProgressNav() {
   return (
     <nav
       ref={navRef}
-      className="fixed right-4 top-1/2 z-[500] flex -translate-y-1/2 flex-col items-center gap-2.5 md:right-7"
+      className="fixed right-3 top-1/2 z-[500] flex -translate-y-1/2 flex-col items-center gap-1.5 sm:right-4 sm:gap-2.5 md:right-7"
     >
       {SECTION_IDS.map((_, i) => (
         <button
@@ -59,8 +59,8 @@ export function ProgressNav() {
           aria-label={`Ir a sección ${i + 1}`}
           className={`rounded-full border transition-all duration-400 ${
             active === i
-              ? 'h-5 w-[7px] border-sky-300/60 bg-sky-300 shadow-[0_0_10px_rgba(158,212,240,0.6)]'
-              : 'h-[5px] w-[5px] border-white/12 bg-white/20 hover:bg-white/50'
+              ? 'h-4 w-[6px] border-sky-300/60 bg-sky-300 shadow-[0_0_10px_rgba(158,212,240,0.6)] sm:h-5 sm:w-[7px]'
+              : 'h-[4px] w-[4px] border-white/12 bg-white/20 hover:bg-white/50 sm:h-[5px] sm:w-[5px]'
           }`}
           style={{ cursor: 'pointer', minWidth: 'auto', minHeight: 'auto' }}
         />

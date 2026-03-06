@@ -37,6 +37,14 @@ export function Section12Prisoner() {
       id="section-12-prisoner"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Cold void ambient glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(165,180,252,0.08) 0%, transparent 55%), radial-gradient(ellipse at 50% 90%, rgba(96,165,250,0.05) 0%, transparent 40%)',
+        }}
+        aria-hidden="true"
+      />
       <StoryCard
         chapter="Capítulo XI"
         title="El Prisionero de Hielo"

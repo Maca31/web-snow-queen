@@ -37,6 +37,14 @@ export function Section11Palace() {
       id="section-11-palace"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Icy crystal ambient glow for palace atmosphere */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 80%, rgba(103,232,249,0.1) 0%, transparent 60%), radial-gradient(ellipse at 30% 20%, rgba(56,189,248,0.06) 0%, transparent 50%)',
+        }}
+        aria-hidden="true"
+      />
       <StoryCard
         chapter="Capítulo X"
         title="El Palacio de Hielo"

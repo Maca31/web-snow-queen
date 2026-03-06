@@ -77,6 +77,7 @@ export function ParallaxBg({
 
       <div
         ref={mediaRef}
+        data-parallax-media
         className="absolute inset-0 scale-110"
         style={{ opacity: imageOpacity, mixBlendMode: blendMode as React.CSSProperties['mixBlendMode'] }}
       >
