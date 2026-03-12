@@ -72,6 +72,7 @@ export function Section10Storm() {
           <LazyVideo
             src="/images/characters/renoger.mp4"
             className="h-full w-full object-contain drop-shadow-lg"
+            transparentBg
           />
         </div>
       </div>

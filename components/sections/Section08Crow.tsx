@@ -85,6 +85,7 @@ export function Section08Crow() {
         <LazyVideo
           src="/images/characters/cuervo.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
+          transparentBg
         />
       </div>
 
@@ -93,6 +94,7 @@ export function Section08Crow() {
         <LazyVideo
           src="/images/characters/princesa.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
+          transparentBg
         />
       </div>
     </SectionWrapper>

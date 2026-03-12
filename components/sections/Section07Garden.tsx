@@ -89,6 +89,7 @@ export function Section07Garden() {
         <LazyVideo
           src="/images/characters/GERDAFELIZTRISTE-Picsart-BackgroundRemover.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
+          transparentBg
         />
       </div>
 

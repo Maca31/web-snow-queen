@@ -51,6 +51,7 @@ export function Section12Prisoner() {
         <LazyVideo
           src="/images/characters/gerdasalu.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          transparentBg
         />
       </div>
 
@@ -59,6 +60,7 @@ export function Section12Prisoner() {
         <LazyVideo
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_15px_20px_rgba(0,0,0,0.4)]"
+          transparentBg
         />
       </div>
 

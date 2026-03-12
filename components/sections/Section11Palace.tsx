@@ -74,6 +74,7 @@ export function Section11Palace() {
           <LazyVideo
             src="/images/characters/renoger.mp4"
             className="h-full w-full object-contain drop-shadow-lg"
+            transparentBg
           />
         </div>
       </div>

@@ -60,6 +60,7 @@ export function Section09Robber() {
         <LazyVideo
           src="/images/characters/GERDALLORANDO-Picsart-BackgroundRemover.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          transparentBg
         />
       </div>
 
@@ -68,6 +69,7 @@ export function Section09Robber() {
         <LazyVideo
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          transparentBg
         />
       </div>
 

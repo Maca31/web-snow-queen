@@ -81,6 +81,7 @@ export function Section04IceHeart() {
           <LazyVideo
             src="/images/characters/KAYFELIZTRISTE-Picsart-BackgroundRemover.mp4"
             className="h-full w-full object-contain drop-shadow-lg"
+            transparentBg
           />
         </div>
       </div>
