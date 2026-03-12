@@ -61,6 +61,8 @@ export function Section09Robber() {
           src="/images/characters/GERDALLORANDO-Picsart-BackgroundRemover.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           transparentBg
+          mobileSrc="/images/characters/gerda1-removebg-preview.png"
+          alt="Gerda"
         />
       </div>
 
@@ -70,6 +72,8 @@ export function Section09Robber() {
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           transparentBg
+          mobileSrc="/images/characters/17725448172ac6__1_-removebg-preview.png"
+          alt="Reno"
         />
       </div>
 

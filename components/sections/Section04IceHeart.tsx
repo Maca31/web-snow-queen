@@ -82,6 +82,8 @@ export function Section04IceHeart() {
             src="/images/characters/KAYFELIZTRISTE-Picsart-BackgroundRemover.mp4"
             className="h-full w-full object-contain drop-shadow-lg"
             transparentBg
+            mobileSrc="/images/characters/KAY1-removebg-preview.png"
+            alt="Kay"
           />
         </div>
       </div>

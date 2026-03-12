@@ -90,6 +90,8 @@ export function Section07Garden() {
           src="/images/characters/GERDAFELIZTRISTE-Picsart-BackgroundRemover.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
           transparentBg
+          mobileSrc="/images/characters/gerda1-removebg-preview.png"
+          alt="Gerda"
         />
       </div>
 

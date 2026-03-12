@@ -86,6 +86,8 @@ export function Section08Crow() {
           src="/images/characters/cuervo.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
           transparentBg
+          mobileSrc="/images/characters/1772547114f81b-removebg-preview.png"
+          alt="El cuervo"
         />
       </div>
 
@@ -95,6 +97,8 @@ export function Section08Crow() {
           src="/images/characters/princesa.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
           transparentBg
+          mobileSrc="/images/characters/1772547569102e-removebg-preview.png"
+          alt="La princesa"
         />
       </div>
     </SectionWrapper>

@@ -52,6 +52,8 @@ export function Section12Prisoner() {
           src="/images/characters/gerdasalu.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           transparentBg
+          mobileSrc="/images/characters/gerda1-removebg-preview.png"
+          alt="Gerda"
         />
       </div>
 
@@ -61,6 +63,8 @@ export function Section12Prisoner() {
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_15px_20px_rgba(0,0,0,0.4)]"
           transparentBg
+          mobileSrc="/images/characters/17725448172ac6__1_-removebg-preview.png"
+          alt="Reno"
         />
       </div>
 

@@ -75,6 +75,8 @@ export function Section11Palace() {
             src="/images/characters/renoger.mp4"
             className="h-full w-full object-contain drop-shadow-lg"
             transparentBg
+            mobileSrc="/images/characters/1772806771f04a-removebg-preview.png"
+            alt="Gerda y el reno"
           />
         </div>
       </div>
