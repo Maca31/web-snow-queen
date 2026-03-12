@@ -339,7 +339,7 @@ export function Section02Garden() {
       </div>
 
       {/* GERDA — izquierda */}
-      <div ref={gerdaRef} className="absolute bottom-[3%] left-[29%] z-30 flex flex-col items-center gap-1.5">
+      <div ref={gerdaRef} className="char-hover absolute bottom-[3%] left-[29%] z-30 flex flex-col items-center gap-1.5">
         <div
           className="relative"
           style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
@@ -380,7 +380,7 @@ export function Section02Garden() {
       </div>
 
       {/* KAY — centro-derecha */}
-      <div ref={kayRef} className="absolute bottom-[3%] right-[27%] z-30 flex flex-col items-center gap-1.5">
+      <div ref={kayRef} className="char-hover absolute bottom-[3%] right-[27%] z-30 flex flex-col items-center gap-1.5">
         <div
           className="relative"
           style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}

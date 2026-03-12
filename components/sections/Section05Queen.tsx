@@ -71,7 +71,7 @@ export function Section05Queen() {
       </div>
 
       {/* Reina — sobre el trineo, entra desde la derecha */}
-      <div ref={groupRef} className="absolute bottom-[15%] right-[18%] z-30" style={{ opacity: 0 }}>
+      <div ref={groupRef} className="char-hover absolute bottom-[15%] right-[18%] z-30" style={{ opacity: 0 }}>
         <div className="relative" style={{ width: 'clamp(140px, 22vw, 280px)', height: 'clamp(220px, 38vw, 450px)' }}>
           <Image
             src="/images/characters/1772545519943d__1___2_-removebg-preview.png"

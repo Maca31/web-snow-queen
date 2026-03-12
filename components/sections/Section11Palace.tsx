@@ -69,7 +69,7 @@ export function Section11Palace() {
         />
       </div>
 
-      <div ref={charRef} className="absolute bottom-[10%] left-0 z-30">
+      <div ref={charRef} className="char-hover absolute bottom-[10%] left-0 z-30">
         <div className="relative" style={{ width: 'clamp(120px, 20vw, 240px)', height: 'clamp(120px, 20vw, 240px)', transform: 'scaleX(-1)' }}>
           <LazyVideo
             src="/images/characters/renoger.mp4"

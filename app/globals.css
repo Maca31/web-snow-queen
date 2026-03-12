@@ -419,6 +419,24 @@ section {
 }
 
 /* ───────────────────────────────────────────────────────────────
+   7c. CHARACTER HOVER — pop-out relief effect
+   ─────────────────────────────────────────────────────────────── */
+.char-hover {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.3s ease;
+}
+.char-hover:hover {
+  transform: scale(1.08) translateY(-6px);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4))
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+.char-hover:active {
+  transform: scale(1.02) translateY(-2px);
+}
+
+/* ───────────────────────────────────────────────────────────────
    8. RESPONSIVE
    ─────────────────────────────────────────────────────────────── */
 

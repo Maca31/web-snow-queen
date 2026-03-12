@@ -76,7 +76,7 @@ export function Section04IceHeart() {
         />
       </div>
       {/* Kay — sobre el suelo */}
-      <div ref={charRef} className="absolute bottom-4 right-[15%] z-30" style={{ opacity: 0 }}>
+      <div ref={charRef} className="char-hover absolute bottom-4 right-[15%] z-30" style={{ opacity: 0 }}>
         <div className="relative" style={{ width: 'clamp(140px, 25vw, 300px)', height: 'clamp(220px, 40vw, 480px)' }}>
           <LazyVideo
             src="/images/characters/KAYFELIZTRISTE-Picsart-BackgroundRemover.mp4"

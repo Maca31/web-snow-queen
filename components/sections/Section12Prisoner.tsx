@@ -47,7 +47,7 @@ export function Section12Prisoner() {
         bgColor="#c8dde8"
       />
       {/* Gerda en la puerta del palacio */}
-      <div className="absolute bottom-[28%] left-1/2 -translate-x-1/2 z-[5] h-[15%] w-[5%] md:h-[18%] md:w-[4%]">
+      <div className="char-hover absolute bottom-[28%] left-1/2 -translate-x-1/2 z-[5] h-[15%] w-[5%] md:h-[18%] md:w-[4%]">
         <LazyVideo
           src="/images/characters/gerdasalu.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
@@ -58,7 +58,7 @@ export function Section12Prisoner() {
       </div>
 
       {/* Reno esperando afuera — pequeño y lejano */}
-      <div className="absolute bottom-[35%] left-[42%] z-[4] h-[12%] w-[5%] md:h-[14%] md:w-[4%]">
+      <div className="char-hover absolute bottom-[35%] left-[42%] z-[4] h-[12%] w-[5%] md:h-[14%] md:w-[4%]">
         <LazyVideo
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_15px_20px_rgba(0,0,0,0.4)]"
@@ -69,7 +69,7 @@ export function Section12Prisoner() {
       </div>
 
       {/* Kay sentado en el hielo */}
-      <div className="absolute bottom-[0%] right-[33%] z-10 h-[35%] w-[12%] md:h-[40%] md:w-[10%]">
+      <div className="char-hover absolute bottom-[0%] right-[33%] z-10 h-[35%] w-[12%] md:h-[40%] md:w-[10%]">
         <Image
           src="/images/characters/kaypalaciosen.png"
           alt="Kay sentado en el palacio de hielo"

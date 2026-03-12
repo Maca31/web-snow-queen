@@ -44,7 +44,7 @@ export function Section09Robber() {
       />
 
       {/* Personaje — al lado del columpio, flotando */}
-      <div className="absolute bottom-[5%] left-[32%] z-10 h-[38%] w-[15%] md:h-[42%] md:w-[12%] animate-float">
+      <div className="char-hover absolute bottom-[5%] left-[32%] z-10 h-[38%] w-[15%] md:h-[42%] md:w-[12%] animate-float">
         <Image
           src="/images/characters/17725450952830__1_-removebg-preview.png"
           alt="La Niña Ladrona"
@@ -56,7 +56,7 @@ export function Section09Robber() {
       </div>
 
       {/* Gerda llorando — mismo tamaño que la ladrona */}
-      <div className="absolute bottom-[10%] left-[42%] z-10 h-[30%] w-[12%] md:h-[35%] md:w-[10%] animate-float">
+      <div className="char-hover absolute bottom-[10%] left-[42%] z-10 h-[30%] w-[12%] md:h-[35%] md:w-[10%] animate-float">
         <LazyVideo
           src="/images/characters/GERDALLORANDO-Picsart-BackgroundRemover.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
@@ -67,7 +67,7 @@ export function Section09Robber() {
       </div>
 
       {/* Reno — lado derecho */}
-      <div className="absolute bottom-[5%] right-[15%] z-10 h-[40%] w-[18%] md:h-[45%] md:w-[14%] animate-float">
+      <div className="char-hover absolute bottom-[5%] right-[15%] z-10 h-[40%] w-[18%] md:h-[45%] md:w-[14%] animate-float">
         <LazyVideo
           src="/images/characters/renomov.mp4"
           className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"

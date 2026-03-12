@@ -81,7 +81,7 @@ export function Section08Crow() {
       </div>
 
       {/* Cuervo — izquierda */}
-      <div ref={crowRef} className="absolute bottom-4 right-[55%] z-30" style={{ opacity: 0, height: 'clamp(200px, 32vh, 380px)', width: 'clamp(200px, 32vh, 380px)' }}>
+      <div ref={crowRef} className="char-hover absolute bottom-4 right-[55%] z-30" style={{ opacity: 0, height: 'clamp(200px, 32vh, 380px)', width: 'clamp(200px, 32vh, 380px)' }}>
         <LazyVideo
           src="/images/characters/cuervo.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
@@ -92,7 +92,7 @@ export function Section08Crow() {
       </div>
 
       {/* Princesa — derecha */}
-      <div ref={princessRef} className="absolute bottom-[-2%] right-[42%] z-30" style={{ opacity: 0, height: 'clamp(240px, 40vh, 450px)', width: 'clamp(160px, 26vh, 300px)' }}>
+      <div ref={princessRef} className="char-hover absolute bottom-[-2%] right-[42%] z-30" style={{ opacity: 0, height: 'clamp(240px, 40vh, 450px)', width: 'clamp(160px, 26vh, 300px)' }}>
         <LazyVideo
           src="/images/characters/princesa.mp4"
           className="h-full w-full object-contain drop-shadow-lg"
