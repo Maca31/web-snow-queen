@@ -15,7 +15,8 @@ interface ParallaxBgProps {
   parallaxSpeed?: number;
   imageOpacity?: number;
   blendMode?: string;
-  kenBurns?: boolean;
+  objectFit?: 'cover' | 'contain';
+  bgColor?: string;
 }
 
 export function ParallaxBg({
@@ -26,15 +27,18 @@ export function ParallaxBg({
   parallaxSpeed = 0.2,
   imageOpacity = 0.6,
   blendMode = 'normal',
-  kenBurns = false,
+  objectFit = 'cover',
+  bgColor,
 }: ParallaxBgProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
+  const videoElRef = useRef<HTMLVideoElement>(null);
 
+  // Parallax movement
   useEffect(() => {
     const container = containerRef.current;
     const media = mediaRef.current;
-    if (!container || !media) return;
+    if (!container || !media || parallaxSpeed === 0) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(media,
@@ -50,21 +54,26 @@ export function ParallaxBg({
           },
         }
       );
-
-      if (kenBurns) {
-        gsap.to(media, {
-          scale: 1.06,
-          xPercent: 2,
-          duration: 12,
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-        });
-      }
     });
 
     return () => ctx.revert();
-  }, [parallaxSpeed, kenBurns]);
+  }, [parallaxSpeed]);
+
+  // Video: play/pause based on visibility
+  useEffect(() => {
+    const video = videoElRef.current;
+    if (!video || !videoSrc) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [videoSrc]);
 
   return (
     <div
@@ -78,17 +87,18 @@ export function ParallaxBg({
       <div
         ref={mediaRef}
         data-parallax-media
-        className="absolute inset-0 scale-110"
-        style={{ opacity: imageOpacity, mixBlendMode: blendMode as React.CSSProperties['mixBlendMode'] }}
+        className="absolute inset-0"
+        style={{ opacity: imageOpacity, mixBlendMode: blendMode as React.CSSProperties['mixBlendMode'], backgroundColor: bgColor }}
       >
         {videoSrc && (
           <video
+            ref={videoElRef}
             src={videoSrc}
-            autoPlay
             muted
             loop
             playsInline
-            className="h-full w-full object-cover"
+            preload="none"
+            className={`h-full w-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
           />
         )}
         {imageSrc && !videoSrc && (
@@ -97,7 +107,7 @@ export function ParallaxBg({
             alt={imageAlt}
             fill
             sizes="100vw"
-            className="object-cover"
+            className={objectFit === 'contain' ? 'object-contain' : 'object-cover'}
           />
         )}
       </div>

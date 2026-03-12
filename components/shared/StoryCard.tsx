@@ -1,11 +1,3 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 interface StoryCardProps {
   chapter: string;       // e.g. "Capítulo I"
   title: string;         // e.g. "Kay y Gerda"
@@ -25,50 +17,25 @@ export function StoryCard({
   variant = 'dark',
   className = '',
 }: StoryCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 40, scale: 0.96 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: 'back.out(1.4)',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   const isDark = variant === 'dark';
 
   return (
     <div
-      ref={ref}
       className={`relative z-20 max-w-[calc(100vw-2.5rem)] rounded-3xl border px-5 py-5 sm:max-w-sm sm:px-7 sm:py-6 ${
         isDark
-          ? 'border-sky-300/10 bg-slate-950/70 shadow-[0_0_80px_rgba(0,0,0,0.5)]'
-          : 'border-white/90 bg-white/80 shadow-[0_20px_80px_rgba(0,0,0,0.12)]'
+          ? 'border-sky-300/10 bg-slate-950/45 shadow-[0_0_80px_rgba(0,0,0,0.5)]'
+          : 'border-white/70 bg-white/50 shadow-[0_20px_80px_rgba(0,0,0,0.12)]'
       } backdrop-blur-xl ${className}`}
-      style={{ opacity: 0 }}
     >
       <p
-        className={`text-[0.7rem] font-semibold uppercase tracking-[0.4em] ${
-          isDark ? 'text-amber-400/70' : 'text-sky-700/70'
+        className={`font-bold uppercase ${
+          isDark ? 'text-amber-300/80' : 'text-sky-700/70'
         }`}
-        style={{ fontFamily: 'var(--font-kids)' }}
+        style={{
+          fontFamily: 'var(--font-title)',
+          fontSize: 'clamp(0.5rem, 1vw, 0.7rem)',
+          letterSpacing: '0.3em',
+        }}
       >
         {chapter}
       </p>
@@ -83,29 +50,40 @@ export function StoryCard({
       />
 
       <h2
-        className={`text-xl font-light italic leading-tight md:text-2xl ${
-          isDark ? 'text-sky-100' : 'text-slate-800'
+        className={`font-bold leading-tight ${
+          isDark ? 'text-sky-50' : 'text-slate-800'
         }`}
-        style={{ fontFamily: 'var(--font-title)' }}
+        style={{
+          fontFamily: 'var(--font-title)',
+          fontSize: 'clamp(1.2rem, 3vw, 2rem)',
+          letterSpacing: '0.04em',
+          textShadow: isDark ? '0 2px 12px rgba(0,0,0,0.5)' : 'none',
+        }}
       >
         {title}
       </h2>
 
       <p
-        className={`mt-3 text-sm leading-relaxed md:text-base ${
-          isDark ? 'text-sky-100/85' : 'text-slate-600/90'
+        className={`mt-3 leading-relaxed ${
+          isDark ? 'text-sky-100/90' : 'text-slate-600/90'
         }`}
-        style={{ fontFamily: 'var(--font-kids)' }}
+        style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+        }}
       >
         {body}
       </p>
 
       {body2 && (
         <p
-          className={`mt-2 text-sm leading-relaxed md:text-base ${
-            isDark ? 'text-sky-100/85' : 'text-slate-600/90'
+          className={`mt-2 leading-relaxed ${
+            isDark ? 'text-sky-100/90' : 'text-slate-600/90'
           }`}
-          style={{ fontFamily: 'var(--font-kids)' }}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+          }}
         >
           {body2}
         </p>
@@ -116,6 +94,7 @@ export function StoryCard({
           className={`mt-4 text-xs tracking-wide ${
             isDark ? 'text-sky-200/45' : 'text-slate-400/70'
           }`}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {hint}
         </p>

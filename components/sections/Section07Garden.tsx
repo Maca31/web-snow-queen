@@ -1,27 +1,43 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
+import { LazyVideo } from '../shared/LazyVideo';
+import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Section07Garden() {
   const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const charLeftRef = useRef<HTMLDivElement>(null);
   const charRightRef = useRef<HTMLDivElement>(null);
 
+  useAmbientSound(sectionRef, '/freesound_community-bosque-con-abejas-78867.mp3');
+
   useEffect(() => {
     const section = sectionRef.current;
+    const card = cardRef.current;
     const charLeft = charLeftRef.current;
     const charRight = charRightRef.current;
     if (!section || !charLeft || !charRight) return;
 
     const ctx = gsap.context(() => {
+      // StoryCard scroll animation
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40, scale: 0.96 },
+          {
+            opacity: 1, y: 0, scale: 1, duration: 1, ease: 'back.out(1.4)',
+            scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none reverse' }
+          }
+        );
+      }
+
       // Gerda enters from left
       gsap.fromTo(charLeft,
         { x: -120, opacity: 0 },
@@ -52,38 +68,39 @@ export function Section07Garden() {
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
       <ParallaxBg
-        imageSrc="/images/story/JARDINGERDAYKAY.png"
+        imageSrc="/images/story/jardinencan.png"
         imageAlt="Jardín mágico con flores"
-        imageOpacity={0.5}
-        parallaxSpeed={0.15}
+        imageOpacity={1}
+        parallaxSpeed={0}
       />
-      <StoryCard
-        chapter="Capítulo VI"
-        title="El Jardín Mágico"
-        body="En el camino, Gerda encontró un jardín mágico. Una anciana amable la invitó a quedarse. Las flores cantaban historias… pero ninguna hablaba de Kay."
-        variant="light"
-      />
-      <div ref={charLeftRef} className="absolute bottom-20 left-[15%] z-30" style={{ opacity: 0 }}>
-        <div className="relative" style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}>
-          <Image
-            src="/images/characters/transparent/gerda-08-looking-up-wonder.png"
-            alt="Gerda mirando con asombro"
-            fill
-            sizes="(max-width: 768px) 80px, 160px"
-            className="object-contain drop-shadow-lg"
-          />
-        </div>
+
+      {/* Texto — lado izquierdo */}
+      <div ref={cardRef} className="absolute left-[5%] top-1/2 z-20 -translate-y-1/2" style={{ opacity: 0 }}>
+        <StoryCard
+          chapter="Capítulo VI"
+          title="El Jardín Mágico"
+          body="En el camino, Gerda encontró un jardín mágico. Una anciana amable la invitó a quedarse. Las flores cantaban historias… pero ninguna hablaba de Kay."
+          variant="light"
+        />
       </div>
-      <div ref={charRightRef} className="absolute bottom-20 right-[15%] z-30" style={{ opacity: 0 }}>
-        <div className="relative" style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}>
-          <Image
-            src="/images/characters/transparent/witch-01-standing-welcoming.png"
-            alt="La anciana hechicera del jardín"
-            fill
-            sizes="(max-width: 768px) 80px, 160px"
-            className="object-contain drop-shadow-lg"
-          />
-        </div>
+
+      {/* Gerda — mismo tamaño visual que la anciana */}
+      <div ref={charLeftRef} className="absolute bottom-4 right-[32%] z-30" style={{ opacity: 0, height: 'clamp(200px, 35vh, 400px)', width: 'clamp(130px, 22vh, 260px)' }}>
+        <LazyVideo
+          src="/images/characters/GERDAFELIZTRISTE-Picsart-BackgroundRemover.mp4"
+          className="h-full w-full object-contain drop-shadow-lg"
+        />
+      </div>
+
+      {/* Anciana */}
+      <div ref={charRightRef} className="absolute bottom-4 right-[45%] z-30" style={{ opacity: 0 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/characters/anciana.png?v=3"
+          alt="La anciana hechicera del jardín"
+          className="drop-shadow-lg"
+          style={{ height: 'clamp(200px, 35vh, 400px)', width: 'auto' }}
+        />
       </div>
     </SectionWrapper>
   );

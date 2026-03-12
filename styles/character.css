@@ -1,0 +1,52 @@
+.character-wrapper {
+    position: absolute;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: scale(var(--scale));
+    filter: blur(var(--blur)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
+}
+
+.character-image {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.character-wrapper.is-alive {
+    animation: char-breathe 4s ease-in-out infinite;
+}
+
+@keyframes char-breathe {
+
+    0%,
+    100% {
+        transform: scale(var(--scale)) translateY(0);
+    }
+
+    50% {
+        transform: scale(var(--scale)) translateY(-10px);
+    }
+}
+
+.character-wrapper:hover {
+    filter: blur(0px) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+    transform: scale(calc(var(--scale) * 1.05)) translateZ(20px);
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.character-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(80% / var(--depth));
+    height: 10px;
+    background: radial-gradient(ellipse at center,
+            rgba(0, 0, 0, calc(0.3 / var(--depth))) 0%,
+            transparent 70%);
+    filter: blur(5px);
+    z-index: -1;
+    pointer-events: none;
+}

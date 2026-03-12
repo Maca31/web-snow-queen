@@ -13,22 +13,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function Section05Queen() {
   const sectionRef = useRef<HTMLElement>(null);
-  const charRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const char = charRef.current;
-    if (!section || !char) return;
+    const group = groupRef.current;
+    const card = cardRef.current;
+    if (!section || !group) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(char,
-        { x: 120, opacity: 0 },
+      // Reina + trineo (grupo) entra desde la derecha con scroll
+      gsap.fromTo(group,
+        { x: 500, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)',
-          scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none reverse' }
+          x: 0, opacity: 1, ease: 'none',
+          scrollTrigger: { trigger: section, start: 'top 100%', end: 'top -10%', scrub: 1.5 }
         }
       );
-      gsap.to(char, { y: -8, duration: 2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.2 });
+
+      // Texto entra desde la izquierda con scroll
+      if (card) {
+        gsap.fromTo(card,
+          { x: -400, opacity: 0 },
+          {
+            x: 0, opacity: 1, ease: 'none',
+            scrollTrigger: { trigger: section, start: 'top 100%', end: 'top -10%', scrub: 1.5 }
+          }
+        );
+      }
     });
     return () => ctx.revert();
   }, []);
@@ -40,26 +53,31 @@ export function Section05Queen() {
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
       <ParallaxBg
-        imageSrc="/images/story/SECCION5.png"
-        videoSrc="/images/story/NIEVE.mp4"
+        videoSrc="/images/story/BG-05v.mp4"
         imageAlt="La Reina de las Nieves en su trineo"
-        imageOpacity={0.55}
-        parallaxSpeed={0.2}
+        imageOpacity={0.8}
+        parallaxSpeed={0}
       />
       <StormEffect intensity="normal" />
-      <StoryCard
-        chapter="Capítulo IV"
-        title="La Reina de las Nieves"
-        body="La Reina de las Nieves llegó en su trineo de cristal. Era bella y terrible. Se llevó a Kay entre la ventisca, hacia su palacio de hielo eterno."
-        variant="dark"
-      />
-      <div ref={charRef} className="absolute bottom-20 right-[15%] z-30" style={{ opacity: 0 }}>
-        <div className="relative" style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}>
+
+      {/* Texto — lado izquierdo */}
+      <div ref={cardRef} className="absolute left-[5%] top-1/2 z-20 -translate-y-1/2" style={{ opacity: 0 }}>
+        <StoryCard
+          chapter="Capítulo IV"
+          title="La Reina de las Nieves"
+          body="La Reina de las Nieves llegó en su trineo de cristal. Era bella y terrible. Se llevó a Kay entre la ventisca, hacia su palacio de hielo eterno."
+          variant="dark"
+        />
+      </div>
+
+      {/* Reina — sobre el trineo, entra desde la derecha */}
+      <div ref={groupRef} className="absolute bottom-[15%] right-[18%] z-30" style={{ opacity: 0 }}>
+        <div className="relative" style={{ width: 'clamp(140px, 22vw, 280px)', height: 'clamp(220px, 38vw, 450px)' }}>
           <Image
-            src="/images/characters/transparent/snow-queen-02-arms-commanding.png"
+            src="/images/characters/1772545519943d__1___2_-removebg-preview.png"
             alt="La Reina de las Nieves"
             fill
-            sizes="(max-width: 768px) 80px, 160px"
+            sizes="(max-width: 768px) 140px, 280px"
             className="object-contain drop-shadow-lg"
           />
         </div>

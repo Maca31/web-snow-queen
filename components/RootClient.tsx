@@ -8,6 +8,7 @@ import CustomCursor from "./CustomCursor";
 import SnowParticles from "./SnowParticles";
 import { ProgressNav } from "./shared/ProgressNav";
 import { Narrator } from "./shared/Narrator";
+import { StoryNarrator } from "./StoryNarrator";
 
 interface RootClientProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export function RootClient({ children }: RootClientProps) {
       <SnowParticles />
       <ProgressNav />
       <Narrator />
+      <StoryNarrator />
       {children}
     </>
   );

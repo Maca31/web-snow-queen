@@ -5,7 +5,10 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionWrapper } from "./SectionWrapper";
-import { NarratorBubble, DialogBubble } from "../StoryBubbles";
+
+import { ParallaxBg } from "../shared/ParallaxBg";
+import { StoryCard } from "../shared/StoryCard";
+import { useAmbientSound } from "@/lib/useAmbientSound";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +43,7 @@ function Petal({ index }: { index: number }) {
 
   const colors = ['#fda4af', '#f9a8d4', '#fbcfe8', '#fecdd3', '#fde68a'];
   const color = colors[index % colors.length];
-  const size = 8 + Math.random() * 10;
+  const size = 8 + ((index * 7 + 3) % 11);
 
   return (
     <div
@@ -182,6 +185,8 @@ export function Section02Garden() {
   const sunRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
 
+  useAmbientSound(sectionRef, '/freesound_community-bosque-con-abejas-78867.mp3');
+
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -199,62 +204,71 @@ export function Section02Garden() {
         });
       }
 
+      // Título: aparece con scroll
       if (titleRef.current) {
         gsap.fromTo(titleRef.current,
-          { opacity: 0, y: -30 },
+          { opacity: 0, y: -40 },
           {
-            opacity: 1, y: 0, duration: 1, ease: 'back.out(1.5)',
+            opacity: 1, y: 0, ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
+              start: 'top 90%',
+              end: 'top 40%',
+              scrub: 0.8,
             }
           }
         );
       }
 
+      // Gerda: entra desde la izquierda con el scroll
       if (gerdaRef.current) {
         gsap.fromTo(gerdaRef.current,
-          { x: -120, opacity: 0 },
+          { x: -200, opacity: 0 },
           {
-            x: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)',
+            x: 0, opacity: 1, ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse',
+              start: 'top 85%',
+              end: 'top 30%',
+              scrub: 0.8,
             }
           }
         );
-        gsap.to(gerdaRef.current, {
-          y: -8,
-          duration: 1.8,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          delay: 1.2,
+        // Floating idle después de entrar
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 30%',
+          onEnter: () => {
+            gsap.to(gerdaRef.current, {
+              y: -8, duration: 1.8, repeat: -1, yoyo: true, ease: 'sine.inOut',
+            });
+          },
         });
       }
 
+      // Kay: entra desde la derecha con el scroll
       if (kayRef.current) {
         gsap.fromTo(kayRef.current,
-          { x: 120, opacity: 0 },
+          { x: 200, opacity: 0 },
           {
-            x: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)',
-            delay: 0.2,
+            x: 0, opacity: 1, ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse',
+              start: 'top 80%',
+              end: 'top 30%',
+              scrub: 0.8,
             }
           }
         );
-        gsap.to(kayRef.current, {
-          y: -6,
-          duration: 2.2,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          delay: 1.4,
+        // Floating idle después de entrar
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 30%',
+          onEnter: () => {
+            gsap.to(kayRef.current, {
+              y: -6, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut',
+            });
+          },
         });
       }
 
@@ -279,24 +293,13 @@ export function Section02Garden() {
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
       ref={sectionRef as React.RefObject<HTMLElement>}
     >
-      {/* Fondo: cielo celeste pastel con degradado */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: 'linear-gradient(to bottom, #87CEEB 0%, #D6EAF8 40%, #E8F5E9 70%, #C8E6C9 100%)',
-        }}
+      {/* Fondo: imagen parallax del jardín */}
+      <ParallaxBg
+        imageSrc="/images/story/JARDINGERDAYKAY.png"
+        imageAlt="Jardín de Gerda y Kay"
+        imageOpacity={1}
+        parallaxSpeed={0.15}
       />
-
-      {/* Imagen de fondo del jardín */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src="/images/story/scene-03-garden-happiness.webp"
-          alt="Jardín de flores en primavera"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-60"
-        />
-      </div>
 
       {/* Sol */}
       <div
@@ -323,78 +326,96 @@ export function Section02Garden() {
       </div>
 
       {/* Título */}
-      <h2
+      <div
         ref={titleRef}
-        className="absolute top-6 left-1/2 z-40 -translate-x-1/2 text-center opacity-0"
-        style={{
-          fontFamily: "var(--font-title)",
-          fontSize: 'clamp(1.2rem, 3vw, 2rem)',
-          color: '#5D4037',
-          textShadow: '0 2px 8px rgba(255,255,255,0.8)',
-          whiteSpace: 'nowrap',
-        }}
+        className="absolute top-[5%] left-[38%] z-40 opacity-0"
       >
-        🌸 El Jardín Feliz 🌸
-      </h2>
+        <StoryCard
+          chapter="Capítulo I"
+          title="El Jardín Feliz"
+          body="Gerda y Kay eran los mejores amigos del mundo. Cada día jugaban juntos en su jardín lleno de rosas coloridas y mariposas."
+          variant="light"
+        />
+      </div>
 
-      {/* Contenido central: personajes */}
-      <div className="relative z-30 flex w-full max-w-5xl items-end justify-center gap-8 px-6 pb-32 md:gap-24">
-
-        {/* GERDA */}
-        <div ref={gerdaRef} className="flex flex-col items-center gap-3" style={{ opacity: 0 }}>
-          <DialogBubble
-            character="Gerda"
-            variant="gerda"
-            text="¡Kay, mira qué bonitas son las rosas hoy! 🌹"
-            side="left"
-            delay={1.5}
+      {/* GERDA — izquierda */}
+      <div ref={gerdaRef} className="absolute bottom-[3%] left-[29%] z-30 flex flex-col items-center gap-1.5">
+        <div
+          className="relative"
+          style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
+        >
+          <Image
+            src="/images/characters/gerda1-removebg-preview.png"
+            alt="Gerda"
+            fill
+            sizes="(max-width: 768px) 100px, 200px"
+            className="object-contain drop-shadow-lg"
           />
-          <div
-            className="relative"
-            style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}
-          >
-            <Image
-              src="/images/characters/transparent/gerda-01-standing-happy.webp"
-              alt="Gerda sonriendo"
-              fill
-              sizes="(max-width: 768px) 80px, 160px"
-              className="object-contain drop-shadow-lg"
-            />
-          </div>
+        </div>
+        <p
+          className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-rose-700"
+          style={{
+            fontFamily: "var(--font-kids)",
+            background: 'rgba(255,228,230,0.7)',
+            backdropFilter: 'blur(4px)',
+          }}
+        >
+          Gerda
+        </p>
+        <div
+          className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
+          style={{
+            background: 'rgba(255,228,230,0.75)',
+            backdropFilter: 'blur(8px)',
+            borderLeft: '2px solid rgba(244,114,182,0.4)',
+          }}
+        >
           <p
-            className="rounded-full bg-rose-200/80 px-3 py-1 text-xs font-bold text-rose-700"
-            style={{ fontFamily: "var(--font-kids)" }}
+            className="text-center leading-snug text-rose-800"
+            style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
           >
-            Gerda 👧
+            ¡Kay, mira qué bonitas son las rosas hoy!
           </p>
         </div>
+      </div>
 
-        {/* KAY */}
-        <div ref={kayRef} className="flex flex-col items-center gap-3" style={{ opacity: 0 }}>
-          <DialogBubble
-            character="Kay"
-            variant="kay"
-            text="¡Son las más bonitas del mundo entero! 🌟"
-            side="right"
-            delay={2.2}
+      {/* KAY — centro-derecha */}
+      <div ref={kayRef} className="absolute bottom-[3%] right-[27%] z-30 flex flex-col items-center gap-1.5">
+        <div
+          className="relative"
+          style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
+        >
+          <Image
+            src="/images/characters/KAY1-removebg-preview.png"
+            alt="Kay"
+            fill
+            sizes="(max-width: 768px) 100px, 200px"
+            className="object-contain drop-shadow-lg"
           />
-          <div
-            className="relative"
-            style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}
-          >
-            <Image
-              src="/images/characters/transparent/kay-normal-02-laughing-playing.webp"
-              alt="Kay sonriendo"
-              fill
-              sizes="(max-width: 768px) 80px, 160px"
-              className="object-contain drop-shadow-lg"
-            />
-          </div>
+        </div>
+        <p
+          className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-sky-700"
+          style={{
+            fontFamily: "var(--font-kids)",
+            background: 'rgba(224,242,254,0.7)',
+            backdropFilter: 'blur(4px)',
+          }}
+        >
+          Kay
+        </p>
+        <div
+          className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
+          style={{
+            background: 'rgba(224,242,254,0.75)',
+            backdropFilter: 'blur(8px)',
+            borderLeft: '2px solid rgba(56,189,248,0.4)',
+          }}
+        >
           <p
-            className="rounded-full bg-sky-200/80 px-3 py-1 text-xs font-bold text-sky-700"
-            style={{ fontFamily: "var(--font-kids)" }}
+            className="text-center leading-snug text-sky-800"
+            style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
           >
-            Kay 👦
+            ¡Son las más bonitas del mundo entero!
           </p>
         </div>
       </div>
@@ -406,12 +427,6 @@ export function Section02Garden() {
         ))}
       </div>
 
-      {/* Narrador */}
-      <NarratorBubble
-        text="Gerda y Kay eran los mejores amigos del mundo. Cada día jugaban juntos en su jardín lleno de rosas coloridas y mariposas. ¡Era el lugar más feliz del mundo! 🌺"
-        position="bottom"
-        delay={0.8}
-      />
 
       {/* Hint táctil (solo móvil) */}
       <div

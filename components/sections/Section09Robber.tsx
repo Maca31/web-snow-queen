@@ -1,32 +1,31 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
+import { ParallaxBg } from '../shared/ParallaxBg';
+import Image from 'next/image';
+import { LazyVideo } from '../shared/LazyVideo';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Section09Robber() {
   const sectionRef = useRef<HTMLElement>(null);
-  const charRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const char = charRef.current;
-    if (!section || !char) return;
+    const card = cardRef.current;
+    if (!section || !card) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(char,
-        { x: 120, opacity: 0 },
-        {
-          x: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)',
-          scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none reverse' }
-        }
-      );
-      gsap.to(char, { y: -8, duration: 2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.2 });
+      gsap.set(card, { y: -200, opacity: 0 });
+      gsap.to(card, {
+        y: 0, opacity: 1, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 80%', end: 'top 20%', scrub: 1 }
+      });
     });
     return () => ctx.revert();
   }, []);
@@ -37,31 +36,50 @@ export function Section09Robber() {
       id="section-09-robber"
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Ambient gradient overlay for deep forest depth */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background: 'radial-gradient(ellipse at 60% 30%, rgba(163,230,53,0.07) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(45,74,20,0.15) 0%, transparent 50%)',
-        }}
-        aria-hidden="true"
+      <ParallaxBg
+        imageSrc="/images/story/ladrona.png"
+        imageAlt="La niña ladrona en el bosque"
+        imageOpacity={1}
+        parallaxSpeed={0}
       />
-      <StoryCard
-        chapter="Capítulo VIII"
-        title="La Niña Ladrona"
-        body="Unos bandidos la atraparon en el bosque. Pero la hija de la jefa, una niña valiente y curiosa, se hizo su amiga."
-        body2="'Te ayudaré', dijo. Y le dio su reno más fuerte para que la llevara al norte."
-        variant="dark"
-      />
-      <div ref={charRef} className="absolute bottom-20 right-[15%] z-30" style={{ opacity: 0 }}>
-        <div className="relative" style={{ width: 'clamp(80px, 15vw, 160px)', height: 'clamp(140px, 25vw, 280px)' }}>
-          <Image
-            src="/images/characters/transparent/robber-girl-02-sitting-relaxed.png"
-            alt="La niña ladrona sentada"
-            fill
-            sizes="(max-width: 768px) 80px, 160px"
-            className="object-contain drop-shadow-lg"
-          />
-        </div>
+
+      {/* Personaje — al lado del columpio, flotando */}
+      <div className="absolute bottom-[5%] left-[32%] z-10 h-[38%] w-[15%] md:h-[42%] md:w-[12%] animate-float">
+        <Image
+          src="/images/characters/17725450952830__1_-removebg-preview.png"
+          alt="La Niña Ladrona"
+          fill
+          sizes="(max-width: 768px) 15vw, 12vw"
+          className="object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Gerda llorando — mismo tamaño que la ladrona */}
+      <div className="absolute bottom-[10%] left-[42%] z-10 h-[30%] w-[12%] md:h-[35%] md:w-[10%] animate-float">
+        <LazyVideo
+          src="/images/characters/GERDALLORANDO-Picsart-BackgroundRemover.mp4"
+          className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+        />
+      </div>
+
+      {/* Reno — lado derecho */}
+      <div className="absolute bottom-[5%] right-[15%] z-10 h-[40%] w-[18%] md:h-[45%] md:w-[14%] animate-float">
+        <LazyVideo
+          src="/images/characters/renomov.mp4"
+          className="h-full w-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+        />
+      </div>
+
+      {/* Texto — lado izquierdo, entra desde arriba */}
+      <div ref={cardRef} className="absolute left-[5%] top-1/2 z-30 -translate-y-1/2">
+        <StoryCard
+          chapter="Capítulo VIII"
+          title="La Niña Ladrona"
+          body="Unos bandidos la atraparon en el bosque. Pero la hija de la jefa, una niña valiente y curiosa, se hizo su amiga."
+          body2="'Te ayudaré', dijo. Y le dio su reno más fuerte para que la llevara al norte."
+          variant="dark"
+        />
       </div>
     </SectionWrapper>
   );
