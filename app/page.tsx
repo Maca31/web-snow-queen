@@ -11,6 +11,7 @@ import { Section10Storm } from "@/components/sections/Section10Storm";
 import { Section11Palace } from "@/components/sections/Section11Palace";
 import { Section12Prisoner } from "@/components/sections/Section12Prisoner";
 import { Section13Tears } from "@/components/sections/Section13Tears";
+import { SectionQueenDefeated } from "@/components/sections/SectionQueenDefeated";
 import { Section14Finale } from "@/components/sections/Section14Finale";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
       <Section11Palace />
       <Section12Prisoner />
       <Section13Tears />
+      <SectionQueenDefeated />
       <Section14Finale />
     </main>
   );

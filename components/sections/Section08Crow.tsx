@@ -7,6 +7,7 @@ import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
 import { LazyVideo } from '../shared/LazyVideo';
+import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,8 @@ export function Section08Crow() {
   const princessRef = useRef<HTMLDivElement>(null);
   const crowRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useAmbientSound(sectionRef, '/391239__estebanolarte1999__cuervos.wav', { volume: 0.25 });
 
   useEffect(() => {
     const section = sectionRef.current;

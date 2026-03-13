@@ -19,6 +19,8 @@ export function Section03Mirror() {
     const track = trackRef.current;
     if (!wrap || !track) return;
 
+    let glassPlayed = false;
+
     const ctx = gsap.context(() => {
       // Card A initial state
       if (cardARef.current) gsap.set(cardARef.current, { x: 300, opacity: 0 });
@@ -31,6 +33,15 @@ export function Section03Mirror() {
           pin: true,
           scrub: 1,
           end: () => `+=${track.scrollWidth - window.innerWidth}`,
+          onUpdate: (self) => {
+            // Sonido del espejo rompiéndose al llegar al panel "Los Fragmentos"
+            if (!glassPlayed && self.progress > 0.4) {
+              glassPlayed = true;
+              const audio = new Audio('/979__rhumphries__rbh-glass_break-03.wav');
+              audio.volume = 0.4;
+              audio.play().catch(() => {});
+            }
+          },
         },
       });
 

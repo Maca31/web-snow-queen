@@ -17,6 +17,7 @@ const NARRATOR_LINES: Record<string, string> = {
   'section-11-palace':   'Capítulo X — El palacio de hielo brilla como un diamante... pero qué frío hace aquí.',
   'section-12-prisoner': 'Capítulo XI — Kay está atrapado en el hielo... no siente nada. ¡Ánimo Gerda!',
   'section-13-tears':    'Capítulo XII — ¡Las lágrimas de Gerda derriten el hielo! ¡El amor lo puede todo! 💧',
+  'section-queen-defeated': 'Capítulo XIII — ¡La Reina siente el calor del amor! El palacio de hielo se derrite... ❄️',
   'section-14-finale':   '¡Final feliz! El amor de Gerda venció al frío. Kay y Gerda vuelven a casa juntos. 🌸',
 };
 

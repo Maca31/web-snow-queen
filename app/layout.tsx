@@ -25,9 +25,34 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "La Reina de las Nieves – Story Experience",
+  title: "La Reina de las Nieves | Cuento Interactivo Infantil",
   description:
-    "Experiencia web cinematográfica de storytelling inspirada en 'La Reina de las Nieves', con animaciones GSAP y efectos inmersivos.",
+    "Cuento animado e interactivo de La Reina de las Nieves para ninos. Experiencia web inmersiva con animaciones GSAP, scroll cinematografico y efectos de nieve. Basado en el clasico de Hans Christian Andersen.",
+  keywords: [
+    "cuento interactivo",
+    "La Reina de las Nieves",
+    "cuento infantil",
+    "historia animada",
+    "Hans Christian Andersen",
+    "cuento web",
+    "Snow Queen",
+  ],
+  authors: [{ name: "Maca31" }],
+  openGraph: {
+    title: "La Reina de las Nieves | Cuento Interactivo Infantil",
+    description:
+      "Vive la magica historia de Gerda y Kay en este cuento animado e interactivo. Toca, explora y descubre un mundo de hielo y amor.",
+    type: "website",
+    locale: "es_ES",
+    siteName: "La Reina de las Nieves",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "La Reina de las Nieves | Cuento Interactivo",
+    description:
+      "Cuento animado e interactivo de La Reina de las Nieves. Toca, explora y descubre la historia.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

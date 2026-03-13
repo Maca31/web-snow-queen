@@ -264,8 +264,29 @@ Y él también lloró. Y sus lágrimas arrastraron el último trozo de espejo qu
 Se abrazaron en medio del palacio de hielo que empezaba a derretirse a su alrededor. Y el amor fue más fuerte que todo el frío del mundo.`,
   },
 
+  'section-queen-defeated': {
+    title: 'Capitulo XIII — La Reina Vencida',
+    text: `La Reina de las Nieves sintio algo que nunca habia sentido. Algo caliente dentro de su pecho de hielo.
+
+Era el amor. El amor de Gerda por Kay, tan fuerte y tan puro que ni todo el hielo del mundo podia contra el.
+
+La Reina los miro. Miro a Gerda, tan pequena pero tan valiente. Miro a Kay, con los ojos llenos de lagrimas calientes.
+
+Que es esto que siento, susurro la Reina.
+
+Y entonces empezo a brillar. Su cuerpo de hielo se fue volviendo transparente, como la escarcha cuando sale el sol.
+
+Lo siento, dijo Gerda. Pero Kay tiene que volver a casa.
+
+La Reina no dijo nada mas. Sonrio por primera vez, una sonrisa triste pero libre. Y se fue deshaciendo en el viento del norte, como copos de nieve que vuelven al cielo.
+
+El palacio crujo. Las paredes de hielo empezaron a derretirse. Flores brotaron entre las grietas.
+
+Y donde antes solo habia frio, ahora habia luz.`,
+  },
+
   'section-14-finale': {
-    title: 'Capítulo XIII — Final Feliz',
+    title: 'Capitulo XIV — Final Feliz',
     text: `Salieron del palacio tomados de la mano.
 
 El reno los esperaba fuera, dando saltitos de alegría en la nieve. Los llevó de vuelta al sur, hacia el calor, hacia casa.

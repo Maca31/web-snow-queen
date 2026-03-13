@@ -8,6 +8,7 @@ import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
 import { StormEffect } from '../shared/StormEffect';
 import { LazyVideo } from '../shared/LazyVideo';
+import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,8 @@ export function Section10Storm() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const charRef = useRef<HTMLDivElement>(null);
+
+  useAmbientSound(sectionRef, '/448016__reisgroup__cavalo.wav', { volume: 0.25 });
 
   useEffect(() => {
     const section = sectionRef.current;

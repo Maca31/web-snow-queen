@@ -8,12 +8,15 @@ import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
 import { LazyVideo } from '../shared/LazyVideo';
 import Image from 'next/image';
+import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Section12Prisoner() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useAmbientSound(sectionRef, '/593290__2100385_joshua_blignaut__water-dripping-in-the-back-of-a-cave.wav', { volume: 0.3 });
 
   useEffect(() => {
     const section = sectionRef.current;

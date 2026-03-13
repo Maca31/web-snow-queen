@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
+import { RainEffect } from '../shared/RainEffect';
 import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +15,7 @@ export function Section06Search() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useAmbientSound(sectionRef, '/freesound_community-bosque-con-abejas-78867.mp3');
+  useAmbientSound(sectionRef, '/149743__kvgarlic__largestreamoverloginforestmarch.wav', { volume: 0.25 });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -44,6 +45,8 @@ export function Section06Search() {
         imageOpacity={0.9}
         parallaxSpeed={0}
       />
+
+      <RainEffect intensity="normal" />
 
       {/* Texto — lado derecho, entra desde arriba */}
       <div ref={cardRef} className="absolute right-[5%] top-1/2 z-20 -translate-y-1/2" style={{ opacity: 0 }}>

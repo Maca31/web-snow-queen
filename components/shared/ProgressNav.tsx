@@ -20,6 +20,7 @@ const SECTION_IDS = [
   'section-11-palace',
   'section-12-prisoner',
   'section-13-tears',
+  'section-queen-defeated',
   'section-14-finale',
 ];
 

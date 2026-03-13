@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionWrapper } from './SectionWrapper';
 import { StoryCard } from '../shared/StoryCard';
 import { ParallaxBg } from '../shared/ParallaxBg';
+import { useAmbientSound } from '@/lib/useAmbientSound';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,6 +43,8 @@ export function Section14Finale() {
   const cardRef = useRef<HTMLDivElement>(null);
   const petalsRef = useRef<HTMLDivElement>(null);
   const finRef = useRef<HTMLParagraphElement>(null);
+
+  useAmbientSound(sectionRef, '/freesound_community-bosque-con-abejas-78867.mp3', { volume: 0.2 });
 
   useEffect(() => {
     const section = sectionRef.current;

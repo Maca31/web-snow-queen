@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://web-snow-queen.vercel.app/sitemap.xml
