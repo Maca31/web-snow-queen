@@ -69,15 +69,17 @@ export function Section11Palace() {
         />
       </div>
 
-      <div ref={charRef} className="char-hover absolute bottom-[10%] left-0 z-30">
-        <div className="relative" style={{ width: 'clamp(120px, 20vw, 240px)', height: 'clamp(120px, 20vw, 240px)', transform: 'scaleX(-1)' }}>
-          <LazyVideo
-            src="/images/characters/renoger.mp4"
-            className="h-full w-full object-contain drop-shadow-lg"
-            transparentBg
-            mobileSrc="/images/characters/1772806771f04a-removebg-preview.png"
-            alt="Gerda y el reno"
-          />
+      <div ref={charRef} className="absolute bottom-[10%] left-0 z-30">
+        <div className="char-hover">
+          <div className="relative" style={{ width: 'clamp(120px, 20vw, 240px)', height: 'clamp(120px, 20vw, 240px)', transform: 'scaleX(-1)' }}>
+            <LazyVideo
+              src="/images/characters/renoger.mp4"
+              className="h-full w-full object-contain drop-shadow-lg"
+              transparentBg
+              mobileSrc="/images/characters/1772806771f04a-removebg-preview.png"
+              alt="Gerda y el reno"
+            />
+          </div>
         </div>
       </div>
     </SectionWrapper>

@@ -158,7 +158,7 @@ function InteractiveRose({
   return (
     <div
       ref={roseRef}
-      className="absolute cursor-pointer select-none"
+      className="pointer-events-auto absolute cursor-pointer select-none"
       style={{ ...style, opacity: 0, fontSize: '3rem' }}
       onClick={handleInteract}
       onTouchStart={handleInteract}
@@ -339,89 +339,93 @@ export function Section02Garden() {
       </div>
 
       {/* GERDA — izquierda */}
-      <div ref={gerdaRef} className="char-hover absolute bottom-[3%] left-[29%] z-30 flex flex-col items-center gap-1.5">
-        <div
-          className="relative"
-          style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
-        >
-          <Image
-            src="/images/characters/gerda1-removebg-preview.png"
-            alt="Gerda"
-            fill
-            sizes="(max-width: 768px) 100px, 200px"
-            className="object-contain drop-shadow-lg"
-          />
-        </div>
-        <p
-          className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-rose-700"
-          style={{
-            fontFamily: "var(--font-kids)",
-            background: 'rgba(255,228,230,0.7)',
-            backdropFilter: 'blur(4px)',
-          }}
-        >
-          Gerda
-        </p>
-        <div
-          className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
-          style={{
-            background: 'rgba(255,228,230,0.75)',
-            backdropFilter: 'blur(8px)',
-            borderLeft: '2px solid rgba(244,114,182,0.4)',
-          }}
-        >
-          <p
-            className="text-center leading-snug text-rose-800"
-            style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
+      <div ref={gerdaRef} className="absolute bottom-[3%] left-[29%] z-30">
+        <div className="char-hover flex flex-col items-center gap-1.5">
+          <div
+            className="relative"
+            style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
           >
-            ¡Kay, mira qué bonitas son las rosas hoy!
+            <Image
+              src="/images/characters/gerda1-removebg-preview.png"
+              alt="Gerda"
+              fill
+              sizes="(max-width: 768px) 100px, 200px"
+              className="object-contain drop-shadow-lg"
+            />
+          </div>
+          <p
+            className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-rose-700"
+            style={{
+              fontFamily: "var(--font-kids)",
+              background: 'rgba(255,228,230,0.7)',
+              backdropFilter: 'blur(4px)',
+            }}
+          >
+            Gerda
           </p>
+          <div
+            className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
+            style={{
+              background: 'rgba(255,228,230,0.75)',
+              backdropFilter: 'blur(8px)',
+              borderLeft: '2px solid rgba(244,114,182,0.4)',
+            }}
+          >
+            <p
+              className="text-center leading-snug text-rose-800"
+              style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
+            >
+              ¡Kay, mira qué bonitas son las rosas hoy!
+            </p>
+          </div>
         </div>
       </div>
 
       {/* KAY — centro-derecha */}
-      <div ref={kayRef} className="char-hover absolute bottom-[3%] right-[27%] z-30 flex flex-col items-center gap-1.5">
-        <div
-          className="relative"
-          style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
-        >
-          <Image
-            src="/images/characters/KAY1-removebg-preview.png"
-            alt="Kay"
-            fill
-            sizes="(max-width: 768px) 100px, 200px"
-            className="object-contain drop-shadow-lg"
-          />
-        </div>
-        <p
-          className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-sky-700"
-          style={{
-            fontFamily: "var(--font-kids)",
-            background: 'rgba(224,242,254,0.7)',
-            backdropFilter: 'blur(4px)',
-          }}
-        >
-          Kay
-        </p>
-        <div
-          className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
-          style={{
-            background: 'rgba(224,242,254,0.75)',
-            backdropFilter: 'blur(8px)',
-            borderLeft: '2px solid rgba(56,189,248,0.4)',
-          }}
-        >
-          <p
-            className="text-center leading-snug text-sky-800"
-            style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
+      <div ref={kayRef} className="absolute bottom-[3%] right-[27%] z-30">
+        <div className="char-hover flex flex-col items-center gap-1.5">
+          <div
+            className="relative"
+            style={{ width: 'clamp(100px, 18vw, 200px)', height: 'clamp(160px, 30vw, 320px)' }}
           >
-            ¡Son las más bonitas del mundo entero!
+            <Image
+              src="/images/characters/KAY1-removebg-preview.png"
+              alt="Kay"
+              fill
+              sizes="(max-width: 768px) 100px, 200px"
+              className="object-contain drop-shadow-lg"
+            />
+          </div>
+          <p
+            className="rounded-full px-2.5 py-0.5 text-[0.6rem] font-semibold text-sky-700"
+            style={{
+              fontFamily: "var(--font-kids)",
+              background: 'rgba(224,242,254,0.7)',
+              backdropFilter: 'blur(4px)',
+            }}
+          >
+            Kay
           </p>
+          <div
+            className="max-w-[140px] rounded-lg px-2.5 py-1.5 md:max-w-[180px]"
+            style={{
+              background: 'rgba(224,242,254,0.75)',
+              backdropFilter: 'blur(8px)',
+              borderLeft: '2px solid rgba(56,189,248,0.4)',
+            }}
+          >
+            <p
+              className="text-center leading-snug text-sky-800"
+              style={{ fontFamily: "var(--font-kids)", fontSize: 'clamp(0.55rem, 1.1vw, 0.7rem)' }}
+            >
+              ¡Son las más bonitas del mundo entero!
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Rosas interactivas */}
-      <div className="absolute inset-0 z-40">
+      <div className="pointer-events-none absolute inset-0 z-40">
         {rosePositions.map((pos, i) => (
           <InteractiveRose key={i} style={pos} delay={0.3 + i * 0.15} />
         ))}

@@ -85,25 +85,29 @@ export function Section07Garden() {
       </div>
 
       {/* Gerda — mismo tamaño visual que la anciana */}
-      <div ref={charLeftRef} className="char-hover absolute bottom-4 right-[32%] z-30" style={{ opacity: 0, height: 'clamp(200px, 35vh, 400px)', width: 'clamp(130px, 22vh, 260px)' }}>
-        <LazyVideo
-          src="/images/characters/GERDAFELIZTRISTE-Picsart-BackgroundRemover.mp4"
-          className="h-full w-full object-contain drop-shadow-lg"
-          transparentBg
-          mobileSrc="/images/characters/gerda1-removebg-preview.png"
-          alt="Gerda"
-        />
+      <div ref={charLeftRef} className="absolute bottom-4 right-[32%] z-30" style={{ opacity: 0, height: 'clamp(200px, 35vh, 400px)', width: 'clamp(130px, 22vh, 260px)' }}>
+        <div className="char-hover h-full w-full">
+          <LazyVideo
+            src="/images/characters/GERDAFELIZTRISTE-Picsart-BackgroundRemover.mp4"
+            className="h-full w-full object-contain drop-shadow-lg"
+            transparentBg
+            mobileSrc="/images/characters/gerda1-removebg-preview.png"
+            alt="Gerda"
+          />
+        </div>
       </div>
 
       {/* Anciana */}
-      <div ref={charRightRef} className="char-hover absolute bottom-4 right-[45%] z-30" style={{ opacity: 0 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/characters/anciana.png?v=3"
-          alt="La anciana hechicera del jardín"
-          className="drop-shadow-lg"
-          style={{ height: 'clamp(200px, 35vh, 400px)', width: 'auto' }}
-        />
+      <div ref={charRightRef} className="absolute bottom-4 right-[45%] z-30" style={{ opacity: 0 }}>
+        <div className="char-hover">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/characters/anciana.png?v=3"
+            alt="La anciana hechicera del jardín"
+            className="drop-shadow-lg"
+            style={{ height: 'clamp(200px, 35vh, 400px)', width: 'auto' }}
+          />
+        </div>
       </div>
     </SectionWrapper>
   );
