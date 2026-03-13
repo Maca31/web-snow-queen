@@ -127,7 +127,7 @@ export function Section14Finale() {
       />
 
       {/* CSS keyframes para corazones y sparkles */}
-      <style jsx>{`
+      <style>{`
         @keyframes floatUp {
           0% { transform: translateY(0) translateX(0); opacity: 0; }
           10% { opacity: 0.7; }

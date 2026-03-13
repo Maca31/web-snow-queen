@@ -38,7 +38,7 @@ export default function ProgressIndicator() {
                 Story Progress
             </div>
 
-            <style jsx>{`
+            <style>{`
         .vertical-text {
           writing-mode: vertical-rl;
           text-orientation: mixed;
